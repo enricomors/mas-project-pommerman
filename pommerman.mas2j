@@ -1,0 +1,23 @@
+/*
+    pommerman
+    ---------------------------
+
+    Jason Application File
+
+    This file defines the initial state of the MAS
+
+    Jason 3.2.0
+    February 16, 2024 - 11:14:46
+*/
+
+MAS pommerman {
+
+    environment: env.PommerEnv(10)
+
+    agents: dave;
+            carol;
+            bob;
+            alice;
+
+    aslSourcePath: "src/agt";
+}
