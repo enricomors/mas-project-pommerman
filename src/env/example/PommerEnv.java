@@ -18,29 +18,40 @@ import java.awt.Graphics;
 public class PommerEnv extends Environment {
 
     /** Constants for jason terms and literals */
-    // TODO
+    public static final Term ma = Literal.parseLiteral("move_agent");
 
-    private Logger logger = Logger.getLogger("pommerman."+PommerEnv.class.getName());
+    static Logger logger = Logger.getLogger("pommerman."+PommerEnv.class.getName());
 
-    private PommerModel model;
-    private PommerView view;
+    //private PommerModel model;
+    //private PommerView view;
+    PommerModel model;
+    PommerView view;
 
     /** Called before the MAS execution with the args informed in .mas2j */
     @Override
     public void init(String[] args) {
-        model = new PommerModel();
-        view = new PommerView(model);
+        this.model = new PommerModel();
+        this.view = new PommerView(model);
         model.setView(view);
         // updatePercepts();
     }
 
     @Override
     public boolean executeAction(String agName, Structure action) {
-        logger.info("executing: "+action+", but not implemented!");
-        if (true) { // you may improve this condition
-             informAgsEnvironmentChanged();
+        logger.info(agName+" doing: "+ action);
+        try {
+            if (action.equals(ma)) {
+                // do something
+                model.moveAgent();
+                logger.info("azione move_agent");
+            } else {
+                logger.info("azione inaspettata");
+                return false; // inform action was not executed with success
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
-        return true; // the action was executed with success
+        return true; // inform action was executed with success
     }
 
     /** Called before the end of MAS execution */

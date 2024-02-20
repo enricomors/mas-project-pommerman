@@ -1,6 +1,7 @@
 package example;
 
 import jason.environment.grid.GridWorldModel;
+import jason.environment.grid.Location;
 
 /**
  * Creates the Grid World Model
@@ -22,6 +23,24 @@ public class PommerModel extends GridWorldModel {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    void moveAgent() throws Exception {
+        // get location of agent alice
+        Location alice = getAgPos(0);
+        // move horizontally on current row
+        alice.x++;
+        // if alice reaches end of row
+        if (alice.x == getWidth()) {
+            // move to the initial cell of the next row
+            alice.x = 0;
+            alice.y++;
+        }
+        // finished searching the whole grid
+        if (alice.y == getHeight()) {
+            return;
+        }
+        setAgPos(0, alice);
     }
     
 }

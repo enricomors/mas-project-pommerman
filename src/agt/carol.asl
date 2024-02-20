@@ -2,10 +2,16 @@
 
 /* Initial beliefs and rules */
 
+alive(self).
+
 /* Initial goals */
 
 !start.
 
+!eliminate_enemies.
+
 /* Plans */
 
-+!start : true <- .print("hello world.").
++!start 
+    : alive(self) 
+    <- .print("I'm alive!.").

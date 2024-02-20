@@ -8,6 +8,10 @@ alive(self).
 
 !start.
 
+!eliminate_enemies.
+
 /* Plans */
 
-+!start : alive(self) <- .print("I'm alive!.").
++!start 
+    : alive(self) 
+    <- .print("I'm alive!.").

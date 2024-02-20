@@ -4,12 +4,24 @@
 
 alive(self).
 
-/* Initial goals */
+
+/* GOALS */
+
+!start.
 
 !eliminate_enemies.
 
-/* Plans */
+!move_to(bunker).
 
-+!eliminate_enemies 
-    : true 
-    <- .print("I want to kill everybody.").
+
+/* PLANS */
+
++!move_to(bunker) : not at(bunker) <- 
+    move_agent;
+    !move_to(bunker). 
+
++!start : alive(self) <- 
+    .print("I'm alive!.").
+
++!eliminate_enemies : true <- 
+    .print("I want to kill everybody.").

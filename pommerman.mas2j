@@ -12,7 +12,7 @@
 
 MAS pommerman {
 
-    environment: env.PommerEnv(10)
+    environment: example.PommerEnv(10)
 
     agents: dave;
             carol;
