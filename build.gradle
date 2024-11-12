@@ -39,6 +39,10 @@ sourceSets {
     }
 }
 
+tasks.named('compileJava') {
+    dependsOn 'processResources'
+}
+
 task run (type: JavaExec, dependsOn: 'classes') {
     description 'runs the application'
     mainClass = 'jason.infra.local.RunLocalMAS'

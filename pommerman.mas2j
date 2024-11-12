@@ -12,12 +12,12 @@
 
 MAS pommerman {
 
-    environment: example.PommerEnv(10)
+    environment: example.PommerEnv(500)
 
-    agents: dave;
-            carol;
-            bob;
-            alice;
+    agents: detonator #4;
+            bomber
+                agentClass agent.BomberAgent
+                #4;
 
     aslSourcePath: "src/agt";
 }
